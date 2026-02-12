@@ -13,8 +13,9 @@
       --ink: #0b1b3a;
       --muted: #3d537a;
 
-      --atb-blue: #0057b8;
-      --atb-blue-2: #1b74e4;
+      /* Slightly darker ATB-ish blues */
+      --atb-blue: #003a78;
+      --atb-blue-2: #0a57b7;
 
       --line: #d7e4ff;
       --shadow: 0 10px 30px rgba(0, 25, 80, 0.10);
@@ -76,7 +77,7 @@
       width: 9px; height: 9px;
       background: var(--atb-blue);
       border-radius: 999px;
-      box-shadow: 0 0 0 4px rgba(0,87,184,0.10);
+      box-shadow: 0 0 0 4px rgba(0,58,120,0.12);
     }
 
     .card{
@@ -91,75 +92,6 @@
       font-size: 18px;
       line-height: 1.55;
       white-space: pre-wrap;
-    }
-
-    .choices{
-      margin-top: 16px;
-      display: grid;
-      gap: 10px;
-    }
-
-    button.choice{
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, #ffffff 0%, #f2f7ff 100%);
-      border-radius: 14px;
-      padding: 12px 12px;
-      cursor: pointer;
-      text-align: left;
-      font-size: 16px;
-      color: var(--ink);
-      transition: transform 0.06s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-    }
-
-    button.choice:hover{
-      border-color: #b8d0ff;
-      box-shadow: 0 10px 18px rgba(0, 87, 184, 0.12);
-      transform: translateY(-1px);
-    }
-
-    button.choice:active{
-      transform: translateY(0px);
-      box-shadow: 0 6px 12px rgba(0, 87, 184, 0.10);
-    }
-
-    .row{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 14px;
-    }
-
-    .pill{
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: 999px;
-      padding: 8px 10px;
-      font-size: 13px;
-      color: var(--muted);
-      user-select: none;
-    }
-
-    .controls{
-      margin-left: auto;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    button.small{
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 13px;
-      color: var(--atb-blue);
-      cursor: pointer;
-    }
-
-    button.small:hover{
-      border-color: #b8d0ff;
-      box-shadow: 0 8px 14px rgba(0, 87, 184, 0.10);
     }
 
     .score{
@@ -205,6 +137,98 @@
       background: linear-gradient(90deg, var(--atb-blue) 0%, var(--atb-blue-2) 100%);
     }
 
+    .goals{
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: #fff;
+    }
+
+    .goals .label{
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .goals .value{
+      font-size: 14px;
+      color: var(--ink);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: center;
+    }
+
+    .choices{
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    button.choice{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, #f2f7ff 100%);
+      border-radius: 14px;
+      padding: 12px 12px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 16px;
+      color: var(--ink);
+      transition: transform 0.06s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    button.choice:hover{
+      border-color: #b8d0ff;
+      box-shadow: 0 10px 18px rgba(0, 58, 120, 0.14);
+      transform: translateY(-1px);
+    }
+
+    button.choice:active{
+      transform: translateY(0px);
+      box-shadow: 0 6px 12px rgba(0, 58, 120, 0.10);
+    }
+
+    .row{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    .pill{
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      user-select: none;
+    }
+
+    .controls{
+      margin-left: auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button.small{
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--atb-blue-2);
+      cursor: pointer;
+    }
+
+    button.small:hover{
+      border-color: #b8d0ff;
+      box-shadow: 0 8px 14px rgba(0, 58, 120, 0.10);
+    }
+
     .footer{
       margin-top: 14px;
       font-size: 13px;
@@ -220,7 +244,7 @@
     <div class="top">
       <div class="brand">
         <h1>ATB 101: Your Story, Your Way</h1>
-        <div class="sub">MY CYOA.</div>
+        <div class="sub">A tiny CYOA built from real chaos.</div>
       </div>
       <div class="badge"><span class="dot"></span><span id="where">loading…</span></div>
     </div>
@@ -246,192 +270,563 @@
         </div>
       </div>
 
+      <div class="goals" aria-label="Goals">
+        <div class="label">Goals</div>
+        <div class="value">
+          <span><span id="gFactum">⬜</span> Factum submitted</span>
+          <span><span id="gMLSA">⬜</span> MLSA panel locked</span>
+          <span><span id="gWinalta">⬜</span> Winalta/CCAA presentation ready</span>
+          <span><span id="gATB">⬜</span> ATB handled (submit or reprieve email)</span>
+        </div>
+      </div>
+
       <div class="choices" id="choices"></div>
 
       <div class="row">
         <div class="pill" id="saveState">Autosave: on</div>
         <div class="controls">
           <button class="small" id="restart">Restart</button>
+          <button class="small" id="resetAll">Reset autosave</button>
           <button class="small" id="share">Copy share link</button>
         </div>
       </div>
 
       <div class="footer">
-        Tip: you can link directly to a scene using <code>#nodeId</code>. Your choices and score autosave in your browser.
+        Tip: you can link directly to a scene using <code>#nodeId</code>. If you ever see “Missing node”, hit <code>Reset autosave</code>.
       </div>
     </div>
   </div>
 
   <script>
-    // Embedded story (single-file mode)
+    /***********************
+     *  STORY (single file)
+     ***********************/
     const STORY = {
-      "start": "coldOpen",
-      "nodes": {
-        "coldOpen": {
-          "text": "You open your laptop.\\n\\nCalendar: “ATB 101 — Tell us your story, your way.”\\n\\nYou click the portal.\\nThe deadline says:\\n\\n“BY February 12.”\\n\\nNot “11:59 PM.”\\nNot “end of day.”\\n\\nJust: BY.\\n\\nSomehow, you understand this to mean due by February 12th. Not a good look.\\nThen you get an email.\\n\\nAlso open on your laptop:\\n- Bowman Tax Moot factum draft\\n- MLSA speakers panel planning doc (with a budget that is actively insulting)\\n- Corporate Reorganization slides: “CCAA + Winalta”\\n\\nClock: Feb 10th, evening.\\n\\nWhat do you do first?",
-          "choices": [
-            { "label": "Factum first (remove existential threat)", "to": "factumTab", "delta": { "ready": 2 } },
-            { "label": "MLSA panel first (people are counting on you)", "to": "mlsaTab", "delta": { "thrive": 2 } },
-            { "label": "Corporate Reorg prep: CCAA/Winalta slides (tomorrow is real)", "to": "winaltaTab", "delta": { "impact": 1, "ready": 1 } },
-            { "label": "Start the ATB application now (dangerous, timewise but exciting)", "to": "atbTab", "delta": { "ready": 1 } }
+      start: "coldOpen",
+      nodes: {
+        coldOpen: {
+          text:
+`You open your laptop.
+
+Calendar: “ATB 101 — Tell us your story, your way.”
+
+You click the portal.
+The deadline says:
+
+“BY February 12.”
+
+Not “11:59 PM.”
+Not “end of day.”
+
+Just: BY.
+
+Your law brain starts drafting a legal theory about what BY means.
+Then you immediately ignore it.
+
+Also open:
+- Bowman Tax Moot factum draft
+- MLSA speakers panel planning doc (budget: actively insulting)
+- Corporate Reorganization slides: “CCAA + Winalta”
+
+Clock: Feb 10, evening.
+
+What do you do first?`,
+          choices: [
+            { label: "Factum first (remove existential threat)", to: "factumTab", delta: { ready: 2 } },
+            { label: "MLSA panel first (people are counting on you)", to: "mlsaTab", delta: { thrive: 2 } },
+            { label: "Corporate Reorg prep (CCAA/Winalta)", to: "winaltaTab", delta: { impact: 1, ready: 1 } },
+            { label: "Start the ATB application now (time-risk but exciting)", to: "atbTab", delta: { ready: 1 } }
           ]
         },
 
-        "factumTab": {
-          "text": "You open the factum.\\n\\nYou tell yourself:\\n“One tiny edit. Then I submit.”\\n\\nYou change one sentence.\\nThen you notice a comma.\\nThen the comma reminds you of a footnote.\\nThen the footnote reminds you of a case.\\n\\nYou check the time.\\n\\nSomehow it is now 2:47 AM.\\n\\nYou stare into the abyss.\\nThe abyss offers Track Changes.\\n\\nWhat do you do?",
-          "choices": [
-            { "label": "Hard stop. Submit the clear version. No more micro-edits.", "to": "factumSubmit", "delta": { "ready": 2 } },
-            { "label": "One more edit (this is the last one, for real)", "to": "factumSpiral", "delta": { "ready": 1 } }
+        /******** FACTUM ********/
+        factumTab: {
+          text:
+`You open the factum.
+
+You tell yourself:
+“One tiny edit. Then I submit.”
+
+You change one sentence.
+Then you notice a comma.
+Then the comma reminds you of a footnote.
+Then the footnote reminds you of a case.
+
+You check the time.
+
+Somehow it is now 2:47 AM.
+
+You stare into the abyss.
+The abyss offers Track Changes.
+
+What do you do?`,
+          choices: [
+            { label: "Hard stop. Submit the clear version. No more micro-edits.", to: "factumSubmit", delta: { ready: 2, flags: { factumSent: true } } },
+            { label: "One more edit (this is the last one, for real)", to: "factumSpiral", delta: { ready: 1 } }
           ]
         },
 
-        "factumSpiral": {
-          "text": "You do one more edit.\\n\\nThen you do the edit that fixes the edit.\\n\\nThen you do the edit that makes the intro “flow.”\\n\\nThen you re-read one paragraph and think:\\n“Wait. If I change this word, the whole argument becomes… cleaner.”\\n\\nThis is how you accidentally invent a new hobby:\\nMidnight micro-surgery.\\n\\nYou check the file name.\\nIt is currently:\\n\\nfactum_FINAL_v7_REALFINAL_clean_THISONE.docx\\n\\nYou make it worse:\\n\\nfactum_FINAL_v8_REALFINAL_clean_THISONE_ACTUALLY.docx\\n\\nYou check the time.\\n\\nIt is 3:07 AM.\\n\\nYou have become the kind of person who says “just one more tweak” and means it spiritually, not literally.\\n\\nWhat do you do?",
-          "choices": [
-            { "label": "Emergency landing: submit now, close laptop, walk away", "to": "factumSubmit", "delta": { "ready": 2 } },
-            { "label": "Keep editing (it could become perfect by sunrise)", "to": "factumSunrise", "delta": { "ready": 1 } }
+        factumSpiral: {
+          text:
+`You do one more edit.
+
+Then you do the edit that fixes the edit.
+Then you do the edit that makes the intro “flow.”
+Then you re-read one paragraph and think:
+“Wait. If I change this word, the whole argument becomes… cleaner.”
+
+This is how you accidentally invent a new hobby:
+Midnight micro-surgery.
+
+You check the file name. It is currently:
+
+factum_FINAL_v7_REALFINAL_clean_THISONE.docx
+
+You make it worse:
+
+factum_FINAL_v8_REALFINAL_clean_THISONE_ACTUALLY.docx
+
+You check the time.
+
+It is 3:07 AM.
+
+You have become the kind of person who says “just one more tweak” and means it spiritually, not literally.
+
+What do you do?`,
+          choices: [
+            { label: "Emergency landing: submit now, close laptop, walk away", to: "factumSubmit", delta: { ready: 2, flags: { factumSent: true } } },
+            { label: "Keep editing (it could become perfect by sunrise)", to: "factumSunrise", delta: { ready: 1 } }
           ]
         },
 
-        "factumSunrise": {
-          "text": "You keep editing.\\n\\nAt some point you realize you are not writing anymore.\\nYou are litigating with yourself.\\n\\nYou read it aloud.\\nHalfway through you start sounding like you’re cross-examining your own sentence structure.\\n\\nYou glance outside.\\nThe sky is considering becoming morning.\\n\\nThis is your last sane moment to choose clarity over obsession.\\n\\nWhat do you do?",
-          "choices": [
-            { "label": "Submit right now (future-you can process feelings later)", "to": "factumSubmit", "delta": { "ready": 2 } },
-            { "label": "Set a 10-minute timer, then submit no matter what", "to": "timerTrick", "delta": { "ready": 2 } }
+        factumSunrise: {
+          text:
+`You keep editing.
+
+At some point you realize you are not writing anymore.
+You are litigating with yourself.
+
+You read it aloud.
+Halfway through you start sounding like you’re cross-examining your own sentence structure.
+
+You glance outside.
+The sky is considering becoming morning.
+
+This is your last sane moment to choose clarity over obsession.
+
+What do you do?`,
+          choices: [
+            { label: "Submit right now (future-me can process feelings later)", to: "factumSubmit", delta: { ready: 2, flags: { factumSent: true } } },
+            { label: "Set a 10-minute timer, then submit no matter what", to: "timerTrick", delta: { ready: 2 } }
           ]
         },
 
-        "timerTrick": {
-          "text": "You set a 10-minute timer.\\n\\nIt goes off.\\nYou ignore it.\\n\\nYou set a 3-minute timer.\\n\\nIt goes off.\\nYou stare at it like it’s opposing counsel.\\n\\nYou realize: the timer is right.\\n\\nYou submit.\\n\\nNothing explodes.\\nNo alarms.\\nNo dramatic email.\\n\\nYou win the smallest war imaginable.\\n\\nClock: Feb 12, 5:18 AM.\\n\\nNext: MLSA and Corporate Reorg are still real.",
-          "choices": [
-            { "label": "Power nap (short) then MLSA panel logistics", "to": "mlsaTab", "delta": { "thrive": 1, "ready": 1 } },
-            { "label": "Power nap (short) then CCAA/Winalta presentation prep", "to": "winaltaTab", "delta": { "impact": 1, "ready": 1 } }
+        timerTrick: {
+          text:
+`You set a 10-minute timer.
+
+It goes off. You ignore it.
+You set a 3-minute timer.
+
+It goes off.
+
+You stare at it like it’s opposing counsel.
+
+You realize: the timer is right.
+
+You submit.
+
+Nothing explodes.
+No alarms.
+No dramatic email.
+
+You win the smallest war imaginable.
+
+Clock: Feb 12, 5:18 AM.
+
+Next: MLSA and Corporate Reorg are still real.`,
+          choices: [
+            { label: "Power nap (short) then MLSA panel logistics", to: "mlsaTab", delta: { thrive: 1, ready: 1, flags: { factumSent: true } } },
+            { label: "Power nap (short) then CCAA/Winalta prep", to: "winaltaTab", delta: { impact: 1, ready: 1, flags: { factumSent: true } } }
           ]
         },
 
-        "factumSubmit": {
-          "text": "You submit the factum.\\n\\nThe portal does not explode.\\nThe laptop fan slows down like it just finished a marathon.\\n\\nYou look back at the ATB portal.\\n\\n“BY February 12.”\\n\\nIt feels… judgmental.\\n\\nWhat do you tackle next?",
-          "choices": [
-            { "label": "MLSA speakers panel planning", "to": "mlsaTab", "delta": { "thrive": 2 } },
-            { "label": "Corporate Reorg: CCAA/Winalta presentation prep", "to": "winaltaTab", "delta": { "impact": 1, "ready": 1 } },
-            { "label": "ATB application (before time becomes an enemy)", "to": "atbTab", "delta": { "ready": 2 } }
+        factumSubmit: {
+          text:
+`You submit the factum.
+
+The portal does not explode.
+The laptop fan slows down like it just finished a marathon.
+
+You look back at the ATB portal:
+
+“BY February 12.”
+
+It feels… judgmental.
+
+What do you tackle next?`,
+          choices: [
+            { label: "MLSA speakers panel planning", to: "mlsaTab", delta: { thrive: 2, flags: { factumSent: true } } },
+            { label: "Corporate Reorg: CCAA/Winalta", to: "winaltaTab", delta: { impact: 1, ready: 1, flags: { factumSent: true } } },
+            { label: "ATB application (before time becomes an enemy)", to: "atbTab", delta: { ready: 2, flags: { factumSent: true } } }
           ]
         },
 
-        "mlsaTab": {
-          "text": "MLSA speakers panel planning.\\n\\nOne speaker hasn’t confirmed.\\nThe room booking link looks like it was built when BlackBerry was a lifestyle.\\n\\nThen you open the budget.\\n\\nFood prices:\\nAggressively un-serious.\\n\\nSomeone messages:\\n“Can we do something nice, but also… not go bankrupt?”\\n\\nWhat’s your move?",
-          "choices": [
-            { "label": "Negotiate: call/email vendors and make the budget behave", "to": "foodNegotiation", "delta": { "thrive": 2, "ready": 1 } },
-            { "label": "Find a cheaper plan fast (shawarma diplomacy)", "to": "pizzaDiplomacy", "delta": { "thrive": 1, "ready": 1 } },
-            { "label": "Delegate tasks clearly (who/what/by when) and keep moving", "to": "delegateMLSA", "delta": { "thrive": 2 } }
+        /******** MLSA ********/
+        mlsaTab: {
+          text:
+`MLSA speakers panel planning.
+
+One speaker hasn’t confirmed.
+The room booking link looks like it was built when BlackBerry was a lifestyle.
+
+Then you open the budget.
+
+Food prices:
+Aggressively un-serious.
+
+Someone messages:
+“Can we do something nice, but also… not go bankrupt?”
+
+What’s your move?`,
+          choices: [
+            { label: "Negotiate: email/call vendors and make the budget behave", to: "foodNegotiation", delta: { thrive: 2, ready: 1 } },
+            { label: "Find a cheaper plan fast (shawarma diplomacy)", to: "shawarmaDiplomacy", delta: { thrive: 1, ready: 1 } },
+            { label: "Delegate clearly (who/what/by when) and keep moving", to: "delegateMLSA", delta: { thrive: 2 } }
           ]
         },
 
-        "foodNegotiation": {
-          "text": "You become a negotiator.\\n\\nYou email a vendor politely.\\nThey send a quote.\\nYou counter politely.\\nThey counter back.\\n\\nYou discover your legal skillset applies surprisingly well to sandwiches.\\n\\nYou get the price down.\\nYou feel unstoppable.\\n\\nYou update the team.\\nThey react like you just won an Olympic medal!\\n\\nMLSA is stabilizing.\\n\\nWhat next?",
-          "choices": [
-            { "label": "Lock the speaker confirmations and finalize logistics", "to": "mlsaLocked", "delta": { "thrive": 2, "ready": 1 } },
-            { "label": "Switch to Corporate Reorg prep (CCAA/Winalta)", "to": "winaltaTab", "delta": { "impact": 1, "ready": 1 } }
+        foodNegotiation: {
+          text:
+`You become a negotiator.
+
+You email a vendor politely.
+They send a quote.
+You counter politely.
+They counter back.
+
+You discover your legal skillset applies surprisingly well to sandwiches.
+
+You get the price down.
+You feel unstoppable.
+
+You update the team.
+They react like you just won a medal in Competitive Administration.
+
+MLSA is stabilizing.
+
+What next?`,
+          choices: [
+            { label: "Lock speaker confirmations and finalize logistics", to: "mlsaLocked", delta: { thrive: 2, ready: 1, flags: { mlsaLocked: true } } },
+            { label: "Switch to Corporate Reorg prep (CCAA/Winalta)", to: "winaltaTab", delta: { impact: 1, ready: 1 } },
+            { label: "Jump to ATB application", to: "atbTab", delta: { ready: 2 } }
           ]
         },
 
-        "pizzaDiplomacy": {
-          "text": "You choose shawarma diplomacy.\\n\\nIt is not glamorous.\\nBut it is effective.\\n\\nYou pick a vendor.\\nYou keep the budget alive.\\nYou preserve morale.\\n\\nSomeone says:\\n“Honestly, this is perfect.”\\n\\nMLSA is moving.\\n\\nWhat next?",
-          "choices": [
-            { "label": "Finalize speaker confirmations and event timeline", "to": "mlsaLocked", "delta": { "thrive": 2 } },
-            { "label": "Jump to Corporate Reorg prep", "to": "winaltaTab", "delta": { "impact": 1, "ready": 1 } }
+        shawarmaDiplomacy: {
+          text:
+`You choose shawarma diplomacy.
+
+It is not glamorous.
+But it is effective.
+
+You pick a vendor.
+You keep the budget alive.
+You preserve morale.
+
+Someone says:
+“Honestly, this is perfect.”
+
+MLSA is moving.
+
+What next?`,
+          choices: [
+            { label: "Finalize speakers + event timeline", to: "mlsaLocked", delta: { thrive: 2, flags: { mlsaLocked: true } } },
+            { label: "Jump to Corporate Reorg prep", to: "winaltaTab", delta: { impact: 1, ready: 1 } },
+            { label: "Jump to ATB application", to: "atbTab", delta: { ready: 2 } }
           ]
         },
 
-        "delegateMLSA": {
-          "text": "You delegate.\\n\\nNot vague delegation.\\nReal delegation:\\n- You: vendor negotiations\\n- Person A: speaker confirmations\\n- Person B: room booking + A/V\\n- Person C: poster + socials\\n\\nYou don’t do everything.\\nYou make everything happen.\\n\\nMLSA is now a machine.\\n\\nWhat next?",
-          "choices": [
-            { "label": "Corporate Reorg prep (CCAA/Winalta)", "to": "winaltaTab", "delta": { "impact": 1, "ready": 1 } },
-            { "label": "ATB application", "to": "atbTab", "delta": { "ready": 2 } }
+        delegateMLSA: {
+          text:
+`You delegate.
+
+Not vague delegation. Real delegation:
+- You: vendor negotiations
+- Person A: speaker confirmations
+- Person B: room booking + A/V
+- Person C: poster + socials
+
+You don’t do everything.
+You make everything happen.
+
+MLSA is now a machine.
+
+What next?`,
+          choices: [
+            { label: "Confirm the last details and lock it in", to: "mlsaLocked", delta: { thrive: 2, ready: 1, flags: { mlsaLocked: true } } },
+            { label: "Corporate Reorg prep (CCAA/Winalta)", to: "winaltaTab", delta: { impact: 1, ready: 1 } },
+            { label: "ATB application", to: "atbTab", delta: { ready: 2 } }
           ]
         },
 
-        "mlsaLocked": {
-          "text": "The MLSA panel is locked.\\nSpeakers confirmed.\\nRoom booked.\\nFood handled.\\nBudget still alive.\\n\\nYou feel a rare emotion:\\nAdministrative peace.\\n\\nYou check the clock.\\nIt is February 12.\\n\\nYour eyes drift back to ATB:\\n“BY February 12.”\\n\\nThat word “BY” is now doing psychological damage.\\n\\nWhat do you do?",
-          "choices": [
-            { "label": "Corporate Reorg prep quickly, then ATB", "to": "winaltaTab", "delta": { "impact": 1, "ready": 1 } },
-            { "label": "ATB application immediately (do not tempt fate)", "to": "atbTab", "delta": { "ready": 2 } }
+        mlsaLocked: {
+          text:
+`The MLSA panel is locked.
+
+Speakers confirmed.
+Room booked.
+Food handled.
+Budget still alive.
+
+You feel a rare emotion:
+Administrative peace.
+
+You check the clock.
+It is February 12.
+
+Your eyes drift back to ATB:
+“BY February 12.”
+
+That word BY is now doing psychological damage.
+
+What do you do?`,
+          choices: [
+            { label: "Corporate Reorg prep quickly, then ATB", to: "winaltaTab", delta: { impact: 1, ready: 1, flags: { mlsaLocked: true } } },
+            { label: "ATB immediately (do not tempt fate)", to: "atbTab", delta: { ready: 2, flags: { mlsaLocked: true } } }
           ]
         },
 
-        "winaltaTab": {
-          "text": "Corporate Reorganization prep.\\n\\nTopic: CCAA.\\nCase: Winalta.\\n\\nYou open your notes.\\nThe monitor.\\nThe creditor.\\nThe line between “court officer” and “consultant.”\\n\\nYou realize this presentation is basically:\\n“How to be useful without crossing the line.”\\n\\nWhich is… also a life theme.\\n\\nHow do you prep?",
-          "choices": [
-            { "label": "Make it story-driven: players, conflict, what the court did", "to": "winaltaStory", "delta": { "impact": 2, "ready": 1 } },
-            { "label": "Make it tight: issue → rule → application → takeaway", "to": "winaltaIRAC", "delta": { "ready": 2 } }
+        /******** WINALTA/CCAA ********/
+        winaltaTab: {
+          text:
+`Corporate Reorganization prep.
+
+Topic: CCAA.
+Case: Winalta.
+
+You open your notes:
+The monitor.
+The creditor.
+The line between “court officer” and “consultant.”
+
+You realize this presentation is basically:
+“How to be useful without crossing the line.”
+
+Which is… also a life theme.
+
+How do you prep?`,
+          choices: [
+            { label: "Story-driven: players, conflict, what the court did", to: "winaltaStory", delta: { impact: 2, ready: 1 } },
+            { label: "Tight structure: issue → rule → application → takeaway", to: "winaltaIRAC", delta: { ready: 2 } }
           ]
         },
 
-        "winaltaStory": {
-          "text": "You build it like a story.\\n\\nCast of characters.\\nWhat went wrong.\\nWhy it mattered.\\nWhat the court did about it.\\n\\nYou add one slide that is just:\\n“Where is the line?”\\n\\nAnd you know you’ll land it.\\n\\nNow you check the date.\\nFebruary 12.\\n\\nThe ATB portal is still open.\\nStill saying BY.\\n\\nWhat next?",
-          "choices": [
-            { "label": "ATB application now", "to": "atbTab", "delta": { "ready": 2 } },
-            { "label": "Do one final quick rehearsal of the Winalta section", "to": "winaltaRehearse", "delta": { "ready": 1 } }
+        winaltaStory: {
+          text:
+`You build it like a story:
+
+Cast of characters.
+What went wrong.
+Why it mattered.
+What the court did about it.
+
+You add one slide that is just:
+“Where is the line?”
+
+And you know you’ll land it.
+
+Now you check the date.
+February 12.
+
+The ATB portal is still open.
+Still saying BY.
+
+What next?`,
+          choices: [
+            { label: "Mark presentation as ready and go to ATB", to: "atbTab", delta: { ready: 2, flags: { winaltaReady: true } } },
+            { label: "One quick rehearsal (then ATB)", to: "winaltaRehearse", delta: { ready: 1 } }
           ]
         },
 
-        "winaltaIRAC": {
-          "text": "You go full structure.\\nIssue → rule → application → takeaway.\\n\\nIt’s crisp!\\nIt’s teachable!?\\nIt makes sense to people who didn’t live inside the case.\\n\\nYou realize this is maybe a strength:\\nmaking complex law usable.\\n\\nThen you remember:\\nATB.\\nBY Feb 12.\\n\\nWhat next?",
-          "choices": [
-            { "label": "ATB application now", "to": "atbTab", "delta": { "ready": 2 } },
-            { "label": "Quick rehearsal first", "to": "winaltaRehearse", "delta": { "ready": 1 } }
+        winaltaIRAC: {
+          text:
+`You go full structure:
+Issue → rule → application → takeaway.
+
+It’s crisp.
+It’s teachable.
+It makes sense to people who didn’t live inside the case.
+
+You realize you do this a lot:
+turn chaos into something usable.
+
+Then you remember:
+ATB.
+BY Feb 12.
+
+What next?`,
+          choices: [
+            { label: "Mark presentation as ready and go to ATB", to: "atbTab", delta: { ready: 2, flags: { winaltaReady: true } } },
+            { label: "Quick rehearsal first", to: "winaltaRehearse", delta: { ready: 1 } }
           ]
         },
 
-        "winaltaRehearse": {
-          "text": "You rehearse.\\n\\nYou catch one slide that is doing too much.\\nYou simplify it.\\n\\nYou feel the difference immediately.\\n\\nThe presentation is ready.\\n\\nNow: ATB.\\n\\nYou look again.\\nBY February 12.\\n\\nAnd you have the sinking feeling that “BY” did not mean “whenever you feel like it.”",
-          "choices": [
-            { "label": "Go to ATB application", "to": "atbTab", "delta": { "ready": 2 } }
+        winaltaRehearse: {
+          text:
+`You rehearse.
+
+You catch one slide that is doing too much.
+You simplify it.
+
+You feel the difference immediately.
+
+The presentation is ready.
+
+Now:
+ATB.
+
+You look again:
+BY February 12.
+
+And you have the sinking feeling that BY did not mean “whenever you feel like it.”`,
+          choices: [
+            { label: "Go to ATB application", to: "atbTab", delta: { ready: 2, flags: { winaltaReady: true } } }
           ]
         },
 
-        "atbTab": {
-          "text": "ATB says:\\n\\n“Tell us Your Story, Your Way.”\\n\\nYou open a folder called:\\nATB_APPLICATION_IDEAS_FINAL_FINAL_REALLYFINAL\\n\\nInside:\\n- podcast idea\\n- video idea\\n- written narrative idea\\n- a doc titled: “none of these are really YOUSAFF”\\n\\nYou stare at it.\\n\\nTruth: when you’re nervous, you build.\\nWhen you’re excited, you build.\\nWhen you’re procrastinating… you also build.\\n\\nSo you build a tiny game.\\n\\nBut then the hard question:\\nHow do you make it feel like you without turning it into a speech?",
-          "choices": [
-            { "label": "Make it a timeline through real moments (factum, MLSA, Winalta, then ATB)", "to": "timelineMode", "delta": { "ready": 2, "impact": 1 } },
-            { "label": "Make it 'values' themed (risk: sounds like a corporate poster)", "to": "posterRisk", "delta": { "ready": 1 } }
+        /******** ATB ********/
+        atbTab: {
+          text:
+`ATB says:
+
+“Tell us Your Story, Your Way.”
+
+You open a folder called:
+ATB_APPLICATION_IDEAS_FINAL_FINAL_REALLYFINAL
+
+Inside:
+- podcast idea
+- video idea
+- written narrative idea
+- a doc titled: “none of these are really YOUSAFF”
+
+You stare at it.
+
+Truth: when you’re nervous, you build.
+When you’re excited, you build.
+When you’re procrastinating… you also build.
+
+So you build a tiny game.
+
+But then the hard question:
+How do you make it feel like you without turning it into a speech?`,
+          choices: [
+            { label: "Make it a timeline through real moments (factum, MLSA, Winalta, then ATB)", to: "timelineMode", delta: { ready: 2, impact: 1 } },
+            { label: "Try a values-themed approach (risk: corporate poster)", to: "posterRisk", delta: { ready: 1 } }
           ]
         },
 
-        "posterRisk": {
-          "text": "You write something very inspirational.\\n\\nIt is technically fine.\\n\\nBut you read it back and it sounds like a brand campaign.\\n\\nYou close the doc.\\nYou open the game again.\\n\\nNo preaching.\\nOnly scenes.\\nOnly real moments.\\n\\nOkay. Timeline it is.",
-          "choices": [
-            { "label": "Switch to timeline mode", "to": "timelineMode", "delta": { "ready": 2 } }
+        posterRisk: {
+          text:
+`You write something very inspirational.
+
+It is technically fine.
+
+But you read it back and it sounds like a brand campaign.
+
+You close the doc.
+You open the game again.
+
+No preaching.
+Only scenes.
+Only real moments.
+
+Okay. Timeline it is.`,
+          choices: [
+            { label: "Switch to timeline mode", to: "timelineMode", delta: { ready: 2 } }
           ]
         },
 
-        "timelineMode": {
-          "text": "Rule you set:\\n\\nIf it matters, it shows up in the choices.\\nNot in a speech.\\n\\nYou build the story around real moments:\\n- late-night factum edits that turn into 3 AM\\n- MLSA logistics + budget negotiations\\n- presenting on the CCAA and Winalta\\n\\nAnd then you remember the original problem.\\n\\nBY Feb 12.\\n\\nYou check the clock.\\nYou feel a little sick.\\n\\nAre you late?",
-          "choices": [
-            { "label": "Try submitting right now and hope the portal is forgiving", "to": "submitAttempt", "delta": { "ready": 1 } },
-            { "label": "Email for reprieve (accountable, concise, respectful)", "to": "reprieveEmail", "delta": { "thrive": 1, "ready": 1 } }
+        timelineMode: {
+          text:
+`Rule you set:
+
+If it matters, it shows up in the choices.
+Not in a speech.
+
+Your story becomes real moments:
+- factum edits that turn into 3 AM
+- MLSA logistics + food price negotiation
+- presenting on the CCAA and Winalta
+
+And then you remember the original problem.
+
+BY Feb 12.
+
+You check the clock.
+You feel a little sick.
+
+Are you late?`,
+          choices: [
+            { label: "Try submitting right now and hope the portal is forgiving", to: "submitAttempt", delta: { ready: 1 } },
+            { label: "Email for reprieve (accountable, concise, respectful)", to: "reprieveEmail", delta: { thrive: 1, ready: 1, flags: { atbHandled: true } } }
           ]
         },
 
-        "submitAttempt": {
-          "text": "You click submit.\\n\\nThe portal thinks.\\n\\nYou think.\\n\\nThe portal thinks harder.\\n\\nThen it does the worst possible thing:\\nIt shows an error.\\n\\nYou stare at it like it’s a hostile witness.\\n\\nYou have one sensible move left.",
-          "choices": [
-            { "label": "Send the reprieve email (polite, concise, accountable)", "to": "reprieveEmail", "delta": { "thrive": 1, "ready": 1 } }
+        submitAttempt: {
+          text:
+`You click submit.
+
+The portal thinks.
+
+You think.
+
+The portal thinks harder.
+
+Then it does the worst possible thing:
+It shows an error.
+
+You stare at it like it’s a hostile witness.
+
+You have one sensible move left.`,
+          choices: [
+            { label: "Send the reprieve email (polite, concise, accountable)", to: "reprieveEmail", delta: { thrive: 1, ready: 1, flags: { atbHandled: true } } }
           ]
         },
 
-        "reprieveEmail": {
-          "text": "You open a blank email.\\n\\nYou pick the tone:\\n- accountable (no excuses)\\n- respectful (they owe you nothing)\\n- practical (you can submit immediately)\\n\\nYou hit send.\\n\\nThen you stare at your sent folder like it’s going to speak.\\n\\nENDING: Not perfect. Just real. And you shipped anyway.",
-          "ending": true
+        reprieveEmail: {
+          text:
+`You open a blank email.
+
+You pick the tone:
+- accountable (no excuses)
+- respectful (they owe you nothing)
+- practical (you can submit immediately)
+
+You hit send.
+
+Then you stare at your sent folder like it’s going to speak.
+
+ENDING: Not perfect. Just real. And you shipped anyway.`,
+          ending: true
         }
       }
     };
 
-    // Simple state that maps to ATB themes
+    /***********************
+     *  ENGINE
+     ***********************/
     const MAX = 10;
-    const STORE_KEY = "atb101_cyoa_v1";
+    const STORE_KEY = "atb101_cyoa_v2_singlefile";
 
-    let state = { impact: 0, thrive: 0, ready: 0, node: null };
+    let state = {
+      impact: 0,
+      thrive: 0,
+      ready: 0,
+      node: null,
+      flags: { factumSent: false, mlsaLocked: false, winaltaReady: false, atbHandled: false }
+    };
 
     const elText = document.getElementById("text");
     const elChoices = document.getElementById("choices");
@@ -445,17 +840,36 @@
     const bThrive = document.getElementById("bThrive");
     const bReady = document.getElementById("bReady");
 
+    const gFactum = document.getElementById("gFactum");
+    const gMLSA = document.getElementById("gMLSA");
+    const gWinalta = document.getElementById("gWinalta");
+    const gATB = document.getElementById("gATB");
+
     const btnRestart = document.getElementById("restart");
+    const btnResetAll = document.getElementById("resetAll");
     const btnShare = document.getElementById("share");
 
     function clamp(n){ return Math.max(0, Math.min(MAX, n)); }
+
+    function escapeHtml(s){
+      return (s ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;");
+    }
 
     function loadSaved(){
       try{
         const raw = localStorage.getItem(STORE_KEY);
         if(!raw) return;
         const parsed = JSON.parse(raw);
-        if(parsed && typeof parsed === "object") state = { ...state, ...parsed };
+        if(parsed && typeof parsed === "object"){
+          state = {
+            ...state,
+            ...parsed,
+            flags: { ...state.flags, ...(parsed.flags || {}) }
+          };
+        }
       }catch(_){}
     }
 
@@ -472,13 +886,6 @@
       return h || null;
     }
 
-    function escapeHtml(s){
-      return (s ?? "")
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;");
-    }
-
     function updateScoreboard(){
       state.impact = clamp(state.impact);
       state.thrive = clamp(state.thrive);
@@ -491,6 +898,11 @@
       bImpact.style.width = (state.impact / MAX * 100) + "%";
       bThrive.style.width = (state.thrive / MAX * 100) + "%";
       bReady.style.width = (state.ready / MAX * 100) + "%";
+
+      gFactum.textContent = state.flags.factumSent ? "✅" : "⬜";
+      gMLSA.textContent = state.flags.mlsaLocked ? "✅" : "⬜";
+      gWinalta.textContent = state.flags.winaltaReady ? "✅" : "⬜";
+      gATB.textContent = state.flags.atbHandled ? "✅" : "⬜";
     }
 
     function applyDelta(delta){
@@ -498,13 +910,20 @@
       state.impact += (delta.impact || 0);
       state.thrive += (delta.thrive || 0);
       state.ready += (delta.ready || 0);
+
+      if(delta.flags){
+        for(const [k, v] of Object.entries(delta.flags)){
+          if(v === true) state.flags[k] = true;
+        }
+      }
       updateScoreboard();
     }
 
     function goto(nodeId){
       const node = STORY.nodes[nodeId];
       if(!node){
-        elText.textContent = "Missing node: " + nodeId;
+        elText.textContent =
+          "Missing node: " + nodeId + "\n\nFix: click “Reset autosave” (below).";
         elChoices.innerHTML = "";
         elWhere.textContent = "error";
         return;
@@ -516,7 +935,6 @@
 
       elWhere.textContent = "node: " + nodeId;
       elText.innerHTML = escapeHtml(node.text);
-
       elChoices.innerHTML = "";
 
       if(node.ending){
@@ -530,7 +948,11 @@
         btn2.className = "choice";
         btn2.textContent = "Restart from zero";
         btn2.onclick = () => {
-          state = { impact: 0, thrive: 0, ready: 0, node: STORY.start };
+          state = {
+            impact: 0, thrive: 0, ready: 0,
+            node: STORY.start,
+            flags: { factumSent: false, mlsaLocked: false, winaltaReady: false, atbHandled: false }
+          };
           updateScoreboard();
           save();
           goto(STORY.start);
@@ -552,14 +974,29 @@
       }
     }
 
+    function resetAutosave(){
+      try{ localStorage.removeItem(STORE_KEY); }catch(_){}
+      state = {
+        impact: 0, thrive: 0, ready: 0,
+        node: null,
+        flags: { factumSent: false, mlsaLocked: false, winaltaReady: false, atbHandled: false }
+      };
+      location.hash = "";
+      updateScoreboard();
+      goto(STORY.start);
+    }
+
     function main(){
       loadSaved();
       updateScoreboard();
+
+      // Priority: explicit URL hash > saved node > story start
       const start = getHash() || state.node || STORY.start;
       goto(start);
     }
 
     btnRestart.onclick = () => goto(STORY.start);
+    btnResetAll.onclick = () => resetAutosave();
 
     btnShare.onclick = async () => {
       const url = location.href;
@@ -581,3 +1018,4 @@
   </script>
 </body>
 </html>
+
